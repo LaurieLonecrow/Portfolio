@@ -29,21 +29,10 @@ h1, h2, p, li {
       padding: 0px;
 }
 
-.container {
-  width: 600%;
-  height: 100%;
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: #000;
-/*  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/68819/3d_space_5.jpg); */
-}
-
 #three-container {
   position: absolute;
   z-index: 1;
 }
-
-
 
 .main-container {
   width: 100%;
@@ -55,7 +44,6 @@ h1, h2, p, li {
 .main-container.active {
   background-color: #ffffff;
   color: #000;
-
 }
 
 .title-header {
@@ -175,6 +163,14 @@ ul.nav li {
 }
 
 /* Panels */
+.container {
+  width: 600%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #000;
+/*  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/68819/3d_space_5.jpg); */
+}
 
 .panel {
   width: 100%;
@@ -251,10 +247,30 @@ ul.nav li {
 
 .arrow {
   position: relative;
-  top: -4px;
+  top: 10px;
   padding-left: 50px;
   margin: 0 auto;
   font-size: 12px;
+  animation: downArrow 2.2s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+@keyframes downArrow {
+  0% {
+    transform-origin: 0% 0%;
+    transform: scale(1, 0);
+  }
+  50% {
+    transform-origin: 0% 0%;
+    transform: scale(1, 1);
+  }
+  50.1%{
+    transform-origin: 0% 100%;
+    transform: scale(1, 1);
+  }
+  100% {
+    transform-origin: 0% 100%;
+    transform: scale(1, 0);
+  }
 }
 /* Design Board */
 
@@ -263,7 +279,6 @@ ul.nav li {
 }
 
 .section-1 {
-  width: 100%;
   background-color: #88D5E5;
   border-radius: 25px;
 }
@@ -291,7 +306,6 @@ ul.nav li {
 }
 
 .section-2 {
-  width: 50%;
   background-color: #B5EDF9;
   border-radius: 25px;
 }

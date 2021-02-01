@@ -10,7 +10,7 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req,res){
-  res.render("load");
+  res.render("home");
 });
 
 app.get("/home", function(req,res){

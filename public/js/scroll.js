@@ -1,5 +1,9 @@
 // Horizontal Scroll Sections //
-gsap.registerPlugin(Draggable, ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function(event){
+gsap.set("body", { visibility: "visible" });
+//rest of your script...
+
+gsap.registerPlugin(ScrollTrigger);
 
 let sections = gsap.utils.toArray(".panel");
 
@@ -15,6 +19,4 @@ gsap.to(sections, {
     end: () => "+=" + document.querySelector(".container").offsetWidth
   }
 });
-
-// Scroll Down Arrow //
-gsap.to(".arrow", {y: 22, ease: "power1.inOut", repeat: -1, yoyo: true});
+});

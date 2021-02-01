@@ -1,0 +1,1 @@
+This is my Portfolio website that I plan to use to apply for jobs as well as show off my work to potential clients.  I began by drawing out the artboards using Sketch. I used ejs templating and node.js to structure my files.

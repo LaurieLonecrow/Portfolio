@@ -10,6 +10,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: #000;
+  cursor: none;
 }
 
 h1, h2, p, li {
@@ -29,16 +30,56 @@ h1, h2, p, li {
       padding: 0px;
 }
 
-#three-container {
+/* Cursor */
+.cursor {
   position: absolute;
+  background: white;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
   z-index: 1;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+      0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.8);
 }
 
+.cursor.active {
+  /* opacity: 1; */
+  transform: scale(12);
+}
+
+.cursor-follower {
+  position: absolute;
+  background: rgb(253, 142, 122);
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  z-index: 1;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+      0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.8);
+  opacity: .8;
+}
+
+
+/* Home */
 .main-container {
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background: linear-gradient(180deg, rgba(255,156,135,1) 0%, rgba(250,109,79,1) 49%, rgba(3,1,0,1) 100%);
   color: #ffffff;
+}
+
+
+.last-container {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(3,1,0,1) 0% , rgba(250,109,79,1) 49%, rgba(255,156,135,1) 100%);
+
 }
 
 .main-container.active {
@@ -49,12 +90,12 @@ h1, h2, p, li {
 .title-header {
   position: absolute;
   padding: 20%;
-  font-size: 5.5em;
-  font-weight: 600;
+  font-size: 8em;
+  font-weight: 100;
   z-index: 4;
   opacity: 0;
-  animation: fadeIn ease .5s forwards;
-  -webkit-animation: fadeIn ease .5s forwards;
+  animation: fadeIn ease 2s forwards;
+  -webkit-animation: fadeIn ease 2s forwards;
 }
 
 .title-subtitle {
@@ -65,43 +106,46 @@ font-size: 1.5em;
 font-weight: 400;
 z-index: 3;
 opacity: 0;
-animation: fadeIn ease .5s forwards;
--webkit-animation: fadeIn ease .5s forwards;
+animation: fadeIn ease 3s forwards;
+-webkit-animation: fadeIn ease 3s forwards;
 }
 
-.crow {
+/* .crow {
   position: absolute;
   padding: 3% 33%;
-  z-index: 2;
-  opacity: 0;
+  z-index: 2; */
+  /* opacity: 0;
   animation: fadeIn ease 3s 4s forwards;
-  -webkit-animation: fadeIn ease 3s 4s forwards;
-}
+  -webkit-animation: fadeIn ease 3s 4s forwards; */
+/* } */
 
-.moon {
+/* .moon {
   position: absolute;
   padding-left: 30%;
-  z-index: 1;
-  opacity: 0;
+  z-index: 1; */
+  /* opacity: 0;
   animation: fadeIn ease 2s 4s forwards;
-  -webkit-animation: fadeIn ease 2s 4s forwards;
-}
+  -webkit-animation: fadeIn ease 2s 4s forwards; */
+/* } */
+
 /* Navbar */
 
 .main-nav {
-  vertical-align: middle;
+  /* vertical-align: middle;
   display: inline-block;
   width:100vh;
-  height:45px;
+  height:55px; */
   position:fixed;
   background: transparent;
   text-decoration: none;
   -webkit-transform-origin: left top;
   -webkit-transform:rotate(-90deg) translateX(-100%);
-  z-index: 50;
+  z-index: 10;
   opacity: 0;
-  animation: fadeIn ease 2s 5s forwards;
-  -webkit-animation: fadeIn ease 2s 5s forwards;
+  animation: fadeIn ease 2s forwards;
+  -webkit-animation: fadeIn ease 2s forwards; 
+  /* transition: ease 0.4s;
+  & --scrolled { left: -100px;} */
 }
 
 
@@ -110,17 +154,13 @@ ul.nav li {
   margin-left: 40px;
   float: left;
   list-style-type: none;
-  height:100%;
   line-height:45px;
   color: #fff;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 14px;
 }
 
 .nav a {
-  border-radius: 25px;
-  border: solid 2px #fff;
+  /* border-radius: 25px;
+  border: solid 2px #fff; */
   padding: 3px 8px;
   text-decoration: none;
   color: #fff;
@@ -144,7 +184,7 @@ ul.nav li {
   animation: fadeIn 1s forwards;
   -webkit-animation: fadeIn 1s forwards;
   z-index: 50;
-  background-color: #000;
+  /* background-color: #000; */
 
 }
 .popup-menu a {
@@ -159,6 +199,19 @@ ul.nav li {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    left: -100px;
+    opacity: 0;
+
+  }
+  to {
+    left: 0px;
+    opacity: 1;
+
   }
 }
 
@@ -184,7 +237,7 @@ ul.nav li {
   color: white;
   position: relative;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 40px;
 }
 
 .panel.align-top {
@@ -192,7 +245,7 @@ ul.nav li {
 }
 
 .panel h1 {
-  font-size: 3.4em;
+  font-size: 2.1em;
   color: white;
   font-weight: 300;
   margin: 0 auto;

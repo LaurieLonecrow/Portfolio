@@ -19,4 +19,35 @@ gsap.to(sections, {
     end: () => "+=" + document.querySelector(".container").offsetWidth
   }
 });
+
+const showAnim1 = gsap.from('.title-header', { 
+  yPercent: -500,
+  paused: true,
+  duration: 3
+}).progress(1);
+const showAnim2 = gsap.from('.title-subtitle', { 
+  yPercent: -500,
+  paused: true,
+  duration: 5
+}).progress(1);
+const showAnim3 = gsap.from('.main-nav', { 
+  xPercent: -200,
+  paused: true,
+  duration: 1
+}).progress(1);
+
+ScrollTrigger.create({
+  start: "top top",
+  end: 99999,
+  onUpdate: (self) => {
+    self.direction === -1 ? showAnim1.play() : showAnim1.reverse()
+    self.direction === -1 ? showAnim2.play() : showAnim2.reverse()
+    self.direction === -1 ? showAnim3.play() : showAnim3.reverse()
+
+
+  }
+});
+
+
+
 });

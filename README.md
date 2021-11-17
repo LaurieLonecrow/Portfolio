@@ -1,1 +1,9 @@
-This is my Portfolio website that I plan to use to apply for jobs as well as show off my work to potential clients.  I began by drawing out the artboards using Sketch. I used ejs templating and node.js to structure my files.  I am experimenting with animation and using libraries.  At this point, I am using GSAP and THREE to achieve the initial logo animation and the horizontal scroll in the Design Board pages.
+# Portfolio
+
+This is my Portfolio website.  
+
+## Teach Stack
+I began by drawing out the artboards using Sketch. I use EJS templating and Express/Node.js to structure my files.  I am experimenting with animation and using libraries.  At this point, I am using GSAP to achieve the initial animation and the horizontal scroll in the pages.
+
+## Check it out!
+
